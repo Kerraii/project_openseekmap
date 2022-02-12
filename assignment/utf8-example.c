@@ -1,0 +1,20 @@
+#include <stdio.h>      /* printf */
+#include "../src/sanitize/utf8.h"       /* u8_ functions */
+#include "../src/sanitize/accents.h"
+#include <stddef.h>
+
+int example_utf8(){
+    char str[]="België ïś éèñ lánd\0";
+    char buf1[10];
+    char buf2[10];
+    int i = 0,j = 0;
+    wchar_t c;
+    while((c = u8_nextchar(str,&i))){
+        u8_wc_toutf8(buf1,c);
+        uint32_t norm = remove_accent(c);
+        u8_wc_toutf8(buf2,norm);
+        printf("%5d %s (%4d,%s) is first in '%s' (bytes %d-%d)\n", c,buf1, norm, buf2 , str+j, j, i);
+        j = i;
+    }
+    return 0;
+}

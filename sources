@@ -1,0 +1,14 @@
+main.c
+best_total_matches/sort_and_print.c
+combinator/combinator.c
+combinator/match_combinator.c
+databank/databank.c
+editeerafstand/editeerafstand.c
+preprocess/preprocess.c
+sanitize/accents.c
+sanitize/utf8.c
+sanitize/sanitize.c
+score_calculator/rosetta.c
+score_calculator/score_calculator.c
+search/search.c
+shiftAnd/shiftand.c
